@@ -1,0 +1,49 @@
+type News {
+  id: String
+  title: String
+  content: String
+  createdDate: String
+  updatedDate: String
+  publisherId: String
+  publisherName: String
+  categories: [Category]
+  relatedNews: [News]
+}
+
+type Category {
+  id: String
+  name: String
+}
+
+type Publisher {
+  id: String
+  name: String
+  email: String
+}
+
+input Filter {
+  name: String
+  values: [String]
+}
+
+input GetAllNewsInput {
+  search: String
+  filters: [Filter]
+  limit: Int
+  offset: Int
+}
+
+type Query {
+  getAllNews(getAllNewsRequest: GetAllNewsInput): [News]
+  getAllCategories: [Category]
+  getAllPublishers: [Publisher]
+  getNewsDetails(newsId: String): News
+}
+
+type Mutation {
+  receiveNewRead(newsId: String): Boolean
+}
+
+type Subscription {
+  notifyReadNews: Boolean @aws_subscribe(mutations: ["receiveNewRead"])
+}

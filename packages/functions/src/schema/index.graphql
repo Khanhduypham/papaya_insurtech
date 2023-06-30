@@ -1,0 +1,43 @@
+type User {
+  id: String
+  email: String
+  name: String
+}
+
+input SignUpInput {
+  email: String!
+  password: String!
+  name: String!
+}
+
+input SignInInput {
+  email: String!
+  password: String!
+}
+
+type SignInResponse {
+  accessToken: String!
+  refreshToken: String!
+  id: String!
+}
+
+type News {
+  id: String
+  title: String
+  content: String
+  createdDate: String
+}
+
+input CreateNewsInput {
+  title: String
+  content: String
+}
+
+type Query {
+  getUser(id: String): User
+}
+
+type Mutation {
+  signUp(signUpRequest: SignUpInput!): User
+  signIn(signInRequest: SignInInput!): SignInResponse
+}

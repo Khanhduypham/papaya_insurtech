@@ -1,0 +1,25 @@
+{
+  "name": "@news-app/functions",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "test": "sst bind vitest",
+    "typecheck": "tsc -noEmit"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.119",
+    "@types/node": "^20.3.2",
+    "sst": "^2.17.2",
+    "uuid": "^9.0.0",
+    "vitest": "^0.32.2"
+  },
+  "dependencies": {
+    "@aws-sdk/client-rds-data": "^3.360.0",
+    "kysely": "^0.25.0",
+    "kysely-data-api": "^0.2.1",
+    "uuid": "^9.0.0"
+  },
+  "compilerOptions": {
+    "strict": true
+  }
+}

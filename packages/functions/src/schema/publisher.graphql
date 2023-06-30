@@ -1,0 +1,32 @@
+type News {
+  id: String
+  title: String
+  content: String
+  createdDate: String
+  updatedDate: String
+  categories: [String]
+}
+
+input CreateNewsInput {
+  title: String
+  content: String
+  categories: [String]
+}
+
+input UpdateNewsInput {
+  newsId: String
+  title: String
+  content: String
+  categories: [String]
+}
+
+type Query {
+  getNews: [News]
+  getNewsDetails(newsId: String): News
+}
+
+type Mutation {
+  createNews(createNewsRequest: CreateNewsInput!): News
+  deleteNews(newsId: String!): Boolean
+  updateNews(updateNewsRequest: UpdateNewsInput!): News
+}
