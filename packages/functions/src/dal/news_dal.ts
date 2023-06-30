@@ -76,6 +76,7 @@ export const getById = async (newsId: string): Promise<News[]> => {
           "news.id",
           "news.title",
           "news.content",
+          "news.publisher_id as publisherId",
           "news.created_date as createdDate",
           "news.updated_date as updatedDate",
           fn
@@ -106,7 +107,7 @@ export const getAll = async (
       "news.publisher_id as publisherId",
       "news.created_date as createdDate",
       "news.updated_date as updatedDate",
-      "publishers.name",
+      "publishers.name as publisherName",
     ])
     .groupBy(sql`news.id, publishers.name`);
 
